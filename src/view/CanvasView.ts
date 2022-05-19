@@ -24,6 +24,9 @@ export class CanvasView {
 
     initStartButton(startFunction: (view: CanvasView) => void): void {
         this.start?.addEventListener('click', () => {startFunction(this)});
+        window.addEventListener('keypress', (e) => {
+            if (e.key === "Enter" || e.code === "Enter") startFunction(this);
+        })
     }
 
     drawScore(score: number): void {

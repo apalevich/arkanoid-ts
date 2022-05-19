@@ -21,7 +21,8 @@ export class Brick {
     get width(): number { return this.brickWidth };
     get height(): number { return this.brickHeight };
     get pos(): Vector { return this.position };
-    get energy(): number { return this.energy };
+    get energy(): number { return this.brickEnergy };
     get image(): HTMLImageElement { return this.brickImage };
-    set energy(energy: number) { this.energy = energy };
+
+    set energy(energy: number) { this.brickEnergy = energy };
 }

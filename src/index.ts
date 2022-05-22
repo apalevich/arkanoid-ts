@@ -28,8 +28,8 @@ function setGameOver(view: CanvasView) {
     gameOver = false;
 }
 
-function setGameWon(view: CanvasView) {
-    view.drawInfo('YOU WON! 🎉');
+function setGameWin(view: CanvasView) {
+    view.drawInfo('YOU WiN! 🎉');
     gameOver = false;
 }
 
@@ -40,7 +40,7 @@ function gameLoop(
     ball: Ball,
     collision: Collision
 ) {
-    view.clear();
+    view.clear(); 
     view.drawBricks(bricks);
     view.drawSprite(paddle);
     view.drawSprite(ball);
@@ -63,6 +63,10 @@ function gameLoop(
         score += 1;
         view.drawScore(score);
     }
+
+    if (ball.pos.y > view.canvas.height) gameOver = true;
+    if (bricks.length === 0) return setGameWin(view);
+    if (gameOver) return setGameOver(view;)
 
     requestAnimationFrame(() => {gameLoop(view, bricks, paddle, ball, collision)});
 }
